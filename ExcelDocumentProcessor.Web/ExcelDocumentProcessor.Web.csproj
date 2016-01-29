@@ -57,6 +57,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.1.0.84.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>..\packages\System.Data.SQLite.1.0.84.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -102,26 +108,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\themes\mesirow-isg\images\animated-overlay.gif" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_flat_55_999999_40x100.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_flat_75_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_glass_45_0078ae_1x400.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_glass_55_f8da4e_1x400.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_glass_75_79c9ec_1x400.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_0078ae_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_056b93_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_d8e7f3_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_e0fdff_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_f5e175_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_f7a50d_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\images\ui-icons_fcd113_256x240.png" />
-    <Content Include="Content\themes\mesirow-isg\jquery-ui-1.10.4.custom.css" />
-    <Content Include="Content\themes\mesirow-isg\jquery-ui-1.10.4.custom.min.css" />
-    <Content Include="Content\themes\mesirow-isg\mesirow-isg.css" />
+    <Content Include="Content\themes\neon-isg\images\animated-overlay.gif" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\themes\neon-isg\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\themes\neon-isg\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\themes\neon-isg\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\themes\neon-isg\neon-isg.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\accent.png" />

@@ -6,7 +6,7 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
 {
     public class NeonPrincipal : IPrincipal, ISecurity
     {
-        private NeonUserIdentity _identity;
+        private readonly NeonUserIdentity _identity;
 
         /// <summary>
         /// Store the users identity
@@ -43,16 +43,13 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
             try
             {
                 //check user for functionid using userId
-                SecurityModel security = new SecurityModel();
-                if (security.UserHasFunction(((NeonUserIdentity)Identity).UserId.Value, functionId))
-                {
-                    return true;
-                }
-                return false;
+                var security = new SecurityModel();
+                var userId = ((NeonUserIdentity)Identity).UserId;
+                return userId != null && security.UserHasFunction(userId.Value, functionId);
             }
             catch(Exception ex)
             {
-                throw new Exception("functionId;"+functionId.ToString(),ex);
+                throw new Exception("functionId;"+functionId,ex);
             }
         }
     }

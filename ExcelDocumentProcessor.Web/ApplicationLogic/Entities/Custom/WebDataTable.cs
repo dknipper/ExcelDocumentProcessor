@@ -32,8 +32,9 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             {
                 using (var serviceClient = new NeonISGDataServiceClient(Configuration.ActiveNeonDataServiceEndpoint))
                 {
-                    var NeonDatabase = Mapper.Map<WebISGDatabaseType, NeonISGDatabaseType>(databaseType);
-                    var rtrn = serviceClient.SaveRow(tableName, row, NeonDatabase);
+                    var neonDatabase = Mapper.Map<WebISGDatabaseType, NeonISGDatabaseType>(databaseType);
+                    // ReSharper disable once UnusedVariable
+                    var rtrn = serviceClient.SaveRow(tableName, row, neonDatabase);
                 }
                 return true;
             }

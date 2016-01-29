@@ -15,6 +15,7 @@
                 @foreach (var grid in Model)
                 {
                     <li>
+                        @* ReSharper disable Html.IdNotResolved *@
                         <a href="#tabs-@(grid.TableName)" data-table="@(grid.TableName)">@(grid.FriendlyTableName)</a>
                     </li>
                 }

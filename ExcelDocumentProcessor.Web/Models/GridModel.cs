@@ -21,20 +21,22 @@ namespace ExcelDocumentProcessor.Web.Models
         {
             get
             {
-                if (_grids == null)
+                if (_grids != null)
                 {
-                    _grids = new List<GridModel>();
-                    if (Tabs != null)
+                    return _grids;
+                }
+                _grids = new List<GridModel>();
+                if (Tabs == null)
+                {
+                    return _grids;
+                }
+                foreach (var t in Tabs)
+                {
+                    _grids.Add(new GridModel
                     {
-                        foreach (var t in Tabs)
-                        {
-                            _grids.Add(new GridModel()
-                            {
-                                FriendlyTableName = t.FriendlyName,
-                                TableName = t.DBTableName
-                            });
-                        }
-                    }
+                        FriendlyTableName = t.FriendlyName,
+                        TableName = t.DBTableName
+                    });
                 }
                 return _grids;
             }

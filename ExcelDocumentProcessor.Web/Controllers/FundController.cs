@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using ExcelDocumentProcessor.Web.ApplicationLogic.AppConfig;
 using ExcelDocumentProcessor.Web.ApplicationLogic.Enumerations;
@@ -23,7 +24,7 @@ namespace ExcelDocumentProcessor.Web.Controllers
                 var metaData =
                     WebCache.IsgMetaData.FirstOrDefault(
                         x =>
-                        x.Name.ToLower() == g.TableName.ToLower() &&
+                        string.Equals(x.Name, g.TableName, StringComparison.CurrentCultureIgnoreCase) &&
                         x.DatabaseType == fundModel.DatabaseType);
 
                 if (metaData == null)

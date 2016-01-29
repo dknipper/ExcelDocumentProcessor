@@ -8,22 +8,17 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
     /// </summary>
     public class NeonAuthorize : AuthorizeAttribute
     {
-        private int? _functionId;
-
-        public NeonAuthorize(int FunctionId)
+        public NeonAuthorize(int functionId)
         {
-            _functionId = FunctionId;
+            FunctionId = functionId;
         }
         public NeonAuthorize() { }
         /// <summary>
         /// FunctionId for a controller method or class
         /// </summary>
         
-        public int FunctionId
-        {
-            get { return _functionId.Value; }
-            set { _functionId = value; }
-        }
+        public int? FunctionId { get; set; }
+
         /// <summary>
         /// Authorize the user against the functionid
         /// </summary>
@@ -33,20 +28,21 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
             try
             {
                 //1 check for Neon account authentication
-                if (base.AuthorizeCore(filterContext.HttpContext) || ((NeonUserIdentity)filterContext.HttpContext.User.Identity).Login())
+                if (AuthorizeCore(filterContext.HttpContext) || ((NeonUserIdentity)filterContext.HttpContext.User.Identity).Login())
                 {
                     //only check for function if it exists
-                    if (this._functionId.HasValue)
+                    if (!FunctionId.HasValue)
                     {
-                        //user is a valid user; check user's function id access
-                        if (((NeonPrincipal)filterContext.HttpContext.User).HasFunctionId(this._functionId.Value))
-                        {
-                            //function security check passed!
-                            return;
-                        }
-                        //user is unauthorized for this function
-                        HandleUnauthorizedRequest(filterContext);
+                        return;
                     }
+                    //user is a valid user; check user's function id access
+                    if (((NeonPrincipal)filterContext.HttpContext.User).HasFunctionId(FunctionId.Value))
+                    {
+                        //function security check passed!
+                        return;
+                    }
+                    //user is unauthorized for this function
+                    HandleUnauthorizedRequest(filterContext);
                     //user authentication passed!
                     return;
                 }
@@ -55,7 +51,8 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
             }
             catch (Exception ex)
             {
-                throw;
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
             }
         }
         /// <summary>

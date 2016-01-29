@@ -1,4 +1,5 @@
-﻿@{
+﻿@* ReSharper disable once ConvertToConstant.Local *@
+@{
     ViewBag.UName = User.Identity.Name;
     var baseAction = "/";
 }
@@ -40,6 +41,7 @@
                 <div id="headerLinks">
                     @{var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();}
 
+                    @* ReSharper disable ConvertIfStatementToConditionalTernaryExpression *@
                     @if (controller != "Home")
                     {
                         @Html.ActionLink("Home", baseAction, "Home")
@@ -80,6 +82,9 @@
                 </div>
             </div>
         </div>
+        @* ReSharper disable UnusedLocals *@
+        @* ReSharper disable InconsistentNaming *@
+        @* ReSharper disable PossiblyUnassignedProperty *@
         <script type="text/javascript">
 
 		    function showError(data) {

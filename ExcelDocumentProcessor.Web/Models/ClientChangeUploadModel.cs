@@ -125,11 +125,11 @@ namespace ExcelDocumentProcessor.Web.Models
                             };
 
                     UploadCode = Guid.NewGuid().ToString().Substring(0, 6);
-                    var NeonExtraColumns = Mapper.Map<List<WebDataColumnBuilder>, List<NeonFSDataColumnBuilder>>(extraColumns);
-                    NeonExtraColumns.ForEach(x => x.DataTypeName = x.DataTypeName);
+                    var neonExtraColumns = Mapper.Map<List<WebDataColumnBuilder>, List<NeonFSDataColumnBuilder>>(extraColumns);
+                    neonExtraColumns.ForEach(x => x.DataTypeName = x.DataTypeName);
 
-                    var NeonMetaData = Mapper.Map<WebDataTableMetaData, NeonFSDataTableMetaData>(WebCache.IsgMetaData.FirstOrDefault(x => x.DatabaseType == WebISGDatabaseType.ISGInput && string.Equals(SelectedClient.InputTable, x.Name, StringComparison.CurrentCultureIgnoreCase)));
-                    fileServiceClient.UploadClientChangeFile(NeonExtraColumns, file.FileName, NeonMetaData, Configuration.ExcelSpreadSheetNameForImports, UploadCode, file.InputStream);
+                    var neonMetaData = Mapper.Map<WebDataTableMetaData, NeonFSDataTableMetaData>(WebCache.IsgMetaData.FirstOrDefault(x => x.DatabaseType == WebISGDatabaseType.ISGInput && string.Equals(SelectedClient.InputTable, x.Name, StringComparison.CurrentCultureIgnoreCase)));
+                    fileServiceClient.UploadClientChangeFile(neonExtraColumns, file.FileName, neonMetaData, Configuration.ExcelSpreadSheetNameForImports, UploadCode, file.InputStream);
                 }
             }
             catch (Exception ex)

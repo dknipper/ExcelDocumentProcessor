@@ -50,18 +50,19 @@ namespace ExcelDocumentProcessor.Web.Models
         {
             get
             {
-                if (_universeListItems == null)
+                if (_universeListItems != null)
                 {
-                    _universeListItems = new List<SelectListItem>();
-                    foreach (var universe in WebCache.Universes)
-                    {
-                        _universeListItems.Add(
-                            new SelectListItem
-                            {
-                                Value = universe.UniverseName,
-                                Text = universe.UniverseName
-                            });
-                    }
+                    return _universeListItems;
+                }
+                _universeListItems = new List<SelectListItem>();
+                foreach (var universe in WebCache.Universes)
+                {
+                    _universeListItems.Add(
+                        new SelectListItem
+                        {
+                            Value = universe.UniverseName,
+                            Text = universe.UniverseName
+                        });
                 }
                 return _universeListItems;
             }
@@ -71,13 +72,14 @@ namespace ExcelDocumentProcessor.Web.Models
         {
             get
             {
-                if (string.Equals(_selectedUniverseListItemValue, string.Empty, StringComparison.CurrentCultureIgnoreCase))
+                if (!string.Equals(_selectedUniverseListItemValue, string.Empty, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    var firstUniverse = WebCache.Universes.FirstOrDefault();
-                    if (firstUniverse != null)
-                    {
-                        _selectedUniverseListItemValue = firstUniverse.UniverseName;
-                    }
+                    return _selectedUniverseListItemValue;
+                }
+                var firstUniverse = WebCache.Universes.FirstOrDefault();
+                if (firstUniverse != null)
+                {
+                    _selectedUniverseListItemValue = firstUniverse.UniverseName;
                 }
                 return _selectedUniverseListItemValue;
             }
@@ -121,15 +123,15 @@ namespace ExcelDocumentProcessor.Web.Models
                                 new WebDataColumnBuilder(false, "ModifiedOn", typeof (DateTime), DateTime.Now.ToString(CultureInfo.CurrentCulture))
                             };
                     
-                    var NeonExtraColumns = Mapper.Map<List<WebDataColumnBuilder>,List<NeonFSDataColumnBuilder>>(extraColumns);
-                    NeonExtraColumns.ForEach(x => x.DataTypeName = x.DataTypeName);
+                    var neonExtraColumns = Mapper.Map<List<WebDataColumnBuilder>,List<NeonFSDataColumnBuilder>>(extraColumns);
+                    neonExtraColumns.ForEach(x => x.DataTypeName = x.DataTypeName);
 
                     var inputTables = new List<string>();
-                    var NeonUniverse = Mapper.Map<WebUniverse,NeonFSUniverse>(SelectedUniverse);
-                    NeonUniverse.UniverseMaps.ForEach(x => inputTables.Add(x.InputTable.ToLower()));
+                    var neonUniverse = Mapper.Map<WebUniverse,NeonFSUniverse>(SelectedUniverse);
+                    neonUniverse.UniverseMaps.ForEach(x => inputTables.Add(x.InputTable.ToLower()));
 
-                    var NeonMetaData = Mapper.Map<List<WebDataTableMetaData>, List<NeonFSDataTableMetaData>>(WebCache.IsgMetaData.Where(x => inputTables.Contains(x.Name.ToLower())).ToList());
-                    fileServiceClient.UploadUniverseFile(NeonExtraColumns, file.FileName, NeonMetaData, NeonUniverse, UploadCode, file.InputStream);
+                    var neonMetaData = Mapper.Map<List<WebDataTableMetaData>, List<NeonFSDataTableMetaData>>(WebCache.IsgMetaData.Where(x => inputTables.Contains(x.Name.ToLower())).ToList());
+                    fileServiceClient.UploadUniverseFile(neonExtraColumns, file.FileName, neonMetaData, neonUniverse, UploadCode, file.InputStream);
                 }
             }
             catch (Exception ex)

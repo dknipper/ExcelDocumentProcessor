@@ -6,18 +6,14 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
 {
     public class NeonUserIdentity : IIdentity
     {
-        private int? _userId;
-        private string _name;
+        private readonly string _name;
 
         #region Properties
         /// <summary>
         /// Store the userId from the database
         /// </summary>
-        public int? UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
+        public int? UserId { get; set; }
+
         public string AuthenticationType
         {
             get { return "AD Neon Hybrid"; }
@@ -34,14 +30,14 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
         /// </summary>
         public bool IsAuthenticated
         {
-            get { return _userId.HasValue && _userId.GetValueOrDefault() > 0; }
+            get { return UserId.HasValue && UserId.GetValueOrDefault() > 0; }
         }
         /// <summary>
         /// Used for storing the user name and id in the forms cookie
         /// </summary>
         public string UserNameID
         {
-            get { return _name + "|" + _userId; }
+            get { return _name + "|" + UserId; }
         }
         #endregion
 
@@ -50,7 +46,11 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
             if (string.IsNullOrEmpty(identity.Name))
             {
                 //if empty get the AD user name
-                _name = WindowsIdentity.GetCurrent().Name;
+                var windowsIdentity = WindowsIdentity.GetCurrent();
+                if (windowsIdentity != null)
+                {
+                    _name = windowsIdentity.Name;
+                }
             }
             else
             {
@@ -58,7 +58,7 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
                 {
                     //read the name from the forms cookie
                     _name = identity.Name.Split('|')[0];
-                    _userId = Int32.Parse(identity.Name.Split('|')[1]);
+                    UserId = int.Parse(identity.Name.Split('|')[1]);
                 }
                 else
                 {
@@ -67,9 +67,10 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
                 }
             }
 
-            if (identity is NeonUserIdentity)
+            var userIdentity = identity as NeonUserIdentity;
+            if (userIdentity != null)
             {
-                _userId = ((NeonUserIdentity)identity)._userId;
+                UserId = userIdentity.UserId;
             }
         }
 
@@ -82,18 +83,21 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Security
         {
             //if the user is already authenticated continue
             if (IsAuthenticated)
+            {
                 return true;
+            }
 
             try
             {
                 //check that the logged in user is an authenticated user in the system
-                SecurityModel security = new SecurityModel();
-                _userId = security.Login(Name);
+                var security = new SecurityModel();
+                UserId = security.Login(Name);
                 return IsAuthenticated;
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                // ReSharper disable once PossibleIntendedRethrow
+                throw ex;
             }
         }
     }

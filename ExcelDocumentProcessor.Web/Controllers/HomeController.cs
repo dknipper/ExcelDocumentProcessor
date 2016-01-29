@@ -20,7 +20,7 @@ namespace ExcelDocumentProcessor.Web.Controllers
                     JqGridColumns = homeModel.JqGridColumns,
                     TableName = "currentQuarter",
                     FriendlyTableName = "Current Quarter",
-                    ControllerName = homeModel.ControllerName,
+                    ControllerName = homeModel.ControllerName
                 }
             );
 
@@ -31,7 +31,7 @@ namespace ExcelDocumentProcessor.Web.Controllers
                     JqGridColumns = homeModel.JqGridColumns,
                     TableName = "priorExecution",
                     FriendlyTableName = "Prior Execution",
-                    ControllerName = homeModel.ControllerName,
+                    ControllerName = homeModel.ControllerName
                 }
             );
 

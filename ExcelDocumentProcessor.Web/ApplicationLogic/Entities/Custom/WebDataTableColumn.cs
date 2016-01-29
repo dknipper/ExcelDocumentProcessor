@@ -29,36 +29,36 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
                 Type rtrn;
                 switch (TypeName)
                 {
-                    case ("bigint"): { rtrn = typeof(Int64); break; }
-                    case ("binary"): { rtrn = typeof(Byte[]); break; }
-                    case ("bit"): { rtrn = typeof(Boolean); break; }
-                    case ("char"): { rtrn = typeof(String); break; }
+                    case ("bigint"): { rtrn = typeof(long); break; }
+                    case ("binary"): { rtrn = typeof(byte[]); break; }
+                    case ("bit"): { rtrn = typeof(bool); break; }
+                    case ("char"): { rtrn = typeof(string); break; }
                     case ("date"): { rtrn = typeof(DateTime); break; }
                     case ("datetime"): { rtrn = typeof(DateTime); break; }
                     case ("datetime2"): { rtrn = typeof(DateTime); break; }
                     case ("datetimeoffset"): { rtrn = typeof(DateTimeOffset); break; }
-                    case ("decimal"): { rtrn = typeof(Decimal); break; }
-                    case ("float"): { rtrn = typeof(Double); break; }
-                    case ("image"): { rtrn = typeof(Byte[]); break; }
-                    case ("int"): { rtrn = typeof(Int32); break; }
-                    case ("money"): { rtrn = typeof(Decimal); break; }
-                    case ("nchar"): { rtrn = typeof(String); break; }
-                    case ("ntext"): { rtrn = typeof(String); break; }
-                    case ("numeric"): { rtrn = typeof(Decimal); break; }
-                    case ("nvarchar"): { rtrn = typeof(String); break; }
-                    case ("real"): { rtrn = typeof(Single); break; }
-                    case ("rowversion"): { rtrn = typeof(Byte[]); break; }
+                    case ("decimal"): { rtrn = typeof(decimal); break; }
+                    case ("float"): { rtrn = typeof(double); break; }
+                    case ("image"): { rtrn = typeof(byte[]); break; }
+                    case ("int"): { rtrn = typeof(int); break; }
+                    case ("money"): { rtrn = typeof(decimal); break; }
+                    case ("nchar"): { rtrn = typeof(string); break; }
+                    case ("ntext"): { rtrn = typeof(string); break; }
+                    case ("numeric"): { rtrn = typeof(decimal); break; }
+                    case ("nvarchar"): { rtrn = typeof(string); break; }
+                    case ("real"): { rtrn = typeof(float); break; }
+                    case ("rowversion"): { rtrn = typeof(byte[]); break; }
                     case ("smalldatetime"): { rtrn = typeof(DateTime); break; }
-                    case ("smallint"): { rtrn = typeof(Int16); break; }
-                    case ("smallmoney"): { rtrn = typeof(Decimal); break; }
-                    case ("text"): { rtrn = typeof(String); break; }
+                    case ("smallint"): { rtrn = typeof(short); break; }
+                    case ("smallmoney"): { rtrn = typeof(decimal); break; }
+                    case ("text"): { rtrn = typeof(string); break; }
                     case ("time"): { rtrn = typeof(TimeSpan); break; }
-                    case ("timestamp"): { rtrn = typeof(Byte[]); break; }
-                    case ("tinyint"): { rtrn = typeof(Byte); break; }
+                    case ("timestamp"): { rtrn = typeof(byte[]); break; }
+                    case ("tinyint"): { rtrn = typeof(byte); break; }
                     case ("uniqueidentifier"): { rtrn = typeof(Guid); break; }
-                    case ("varbinary"): { rtrn = typeof(Byte[]); break; }
-                    case ("varchar"): { rtrn = typeof(String); break; }
-                    default: { rtrn = typeof(Object); break; }
+                    case ("varbinary"): { rtrn = typeof(byte[]); break; }
+                    case ("varchar"): { rtrn = typeof(string); break; }
+                    default: { rtrn = typeof(object); break; }
                 }
                 return rtrn;
             }
@@ -149,11 +149,11 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             get
             {
                 var rtrn = "text";
-                if (StrongType == typeof(Int16) || StrongType == typeof(Int32) || StrongType == typeof(Int64))
+                if (StrongType == typeof(short) || StrongType == typeof(int) || StrongType == typeof(long))
                 {
                     rtrn = "int";
                 }
-                else if (StrongType == typeof(Decimal) || StrongType == typeof(Double))
+                else if (StrongType == typeof(decimal) || StrongType == typeof(double))
                 {
                     rtrn = "number";
                 }
@@ -179,11 +179,11 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             get
             {
                 var rtrn = new StringBuilder("{");
-                if (StrongType == typeof(Int16) || StrongType == typeof(Int32) || StrongType == typeof(Int64))
+                if (StrongType == typeof(short) || StrongType == typeof(int) || StrongType == typeof(long))
                 {
                     // any special options?
                 }
-                else if (StrongType == typeof(Decimal) || StrongType == typeof(Double))
+                else if (StrongType == typeof(decimal) || StrongType == typeof(double))
                 {
                     // any special options?
                 }
@@ -229,11 +229,11 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
                 rtrn.AppendFormat(" \"required\": {0},", Required);
 
 
-                if (StrongType == typeof(Int16) || StrongType == typeof(Int32) || StrongType == typeof(Int64))
+                if (StrongType == typeof(short) || StrongType == typeof(int) || StrongType == typeof(long))
                 {
                     rtrn.Append(" \"integer\": true");
                 }
-                else if (StrongType == typeof(Decimal) || StrongType == typeof(Double))
+                else if (StrongType == typeof(decimal) || StrongType == typeof(double))
                 {
                     rtrn.Append(" \"number\": true");
                 }
@@ -256,11 +256,11 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             get
             {
                 var rtrn = "";
-                if (StrongType == typeof(Int16) || StrongType == typeof(Int32) || StrongType == typeof(Int64))
+                if (StrongType == typeof(short) || StrongType == typeof(int) || StrongType == typeof(long))
                 {
                     rtrn = "integer";
                 }
-                else if (StrongType == typeof(Decimal) || StrongType == typeof(Double))
+                else if (StrongType == typeof(decimal) || StrongType == typeof(double))
                 {
                     rtrn = "number";
                 }
@@ -287,7 +287,7 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
 
         public string Search
         {
-            get { return (SearchType != ExcelDocumentProcessor.Web.ApplicationLogic.Constants.SearchType.None).ToString().ToLower(); }
+            get { return (SearchType != Constants.SearchType.None).ToString().ToLower(); }
         }
 
         public string SearchType
@@ -296,7 +296,7 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             {
                 return
                     (ConfigSettings == null || string.IsNullOrEmpty(ConfigSettings.SearchType))
-                        ? ExcelDocumentProcessor.Web.ApplicationLogic.Constants.SearchType.None
+                        ? Constants.SearchType.None
                         : ConfigSettings.SearchType;
             }
         }
@@ -306,22 +306,23 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             get
             {
                 var rtrn = string.Empty;
-                if (!SearchType.Equals(ExcelDocumentProcessor.Web.ApplicationLogic.Constants.SearchType.None))
+                if (SearchType.Equals(Constants.SearchType.None))
                 {
-                    var searchOps = new StringBuilder("\"searchoptions\":{");
-
-                    var sopt = SearchType.Equals(ExcelDocumentProcessor.Web.ApplicationLogic.Constants.SearchType.Select) ? "[\"eq\"]," : "[\"cn\"]";
-                    searchOps.AppendFormat("\"sopt\": {0}", sopt);
-
-                    if (SearchType.Equals(ExcelDocumentProcessor.Web.ApplicationLogic.Constants.SearchType.Select))
-                    {
-                        searchOps.AppendFormat("\"value\": {0}, ", UniqueColumnValues);
-
-                        const string attr = "{\"multiple\": \"multiple\", \"class\": \"searchDropDown\"}";
-                        searchOps.AppendFormat("\"attr\": {0},", attr);
-                    }
-                    rtrn = searchOps.ToString().TrimEnd(',') + "},";
+                    return rtrn;
                 }
+                var searchOps = new StringBuilder("\"searchoptions\":{");
+
+                var sopt = SearchType.Equals(Constants.SearchType.Select) ? "[\"eq\"]," : "[\"cn\"]";
+                searchOps.AppendFormat("\"sopt\": {0}", sopt);
+
+                if (SearchType.Equals(Constants.SearchType.Select))
+                {
+                    searchOps.AppendFormat("\"value\": {0}, ", UniqueColumnValues);
+
+                    const string attr = "{\"multiple\": \"multiple\", \"class\": \"searchDropDown\"}";
+                    searchOps.AppendFormat("\"attr\": {0},", attr);
+                }
+                rtrn = searchOps.ToString().TrimEnd(',') + "},";
                 return rtrn;
             }
         }
@@ -331,27 +332,17 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
         {
             get
             {
-                if (_uniqueColumnValues == null)
+                if (_uniqueColumnValues != null)
                 {
-                    using (var serviceClient = new NeonISGDataServiceClient(Configuration.ActiveNeonDataServiceEndpoint))
-                    {
-                        //var database = Mapper.Map<WebISGDatabaseType, NeonISGDatabaseType>(DatabaseType);
-                        //var distinctValues = serviceClient.GetDistinctValues(ParentTable, Name, database);
+                    return _uniqueColumnValues;
+                }
+                using (new NeonISGDataServiceClient(Configuration.ActiveNeonDataServiceEndpoint))
+                {
+                    var data = new StringBuilder();
+                    data.Append("{");
+                    data.Append("}");
 
-                        var data = new StringBuilder();
-                        data.Append("{");
-                        //distinctValues.ForEach(value =>
-                        //{
-                        //    var distinctValue = (!string.IsNullOrEmpty(value)) ? value : string.Empty;
-                        //    distinctValue = distinctValue.Replace("'", "\\'");
-                        //    data.AppendFormat("\"{0}\":\"{0}\"", WebDataTableRow.JsonEncode(distinctValue));
-                        //    if (!string.Equals(distinctValues.Last(), value, StringComparison.CurrentCulture))
-                        //        data.AppendFormat(",");
-                        //});
-                        data.Append("}");
-
-                        _uniqueColumnValues = data.ToString();
-                    }
+                    _uniqueColumnValues = data.ToString();
                 }
                 return _uniqueColumnValues;
             }
@@ -362,7 +353,7 @@ namespace ExcelDocumentProcessor.Web.ApplicationLogic.Entities.Custom
             get
             {
                 return
-                    (StrongType == typeof(Int16) || StrongType == typeof(Int32) || StrongType == typeof(Int64))
+                    (StrongType == typeof(short) || StrongType == typeof(int) || StrongType == typeof(long))
                         ? "right"
                         : "left";
             }
