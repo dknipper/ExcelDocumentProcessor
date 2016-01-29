@@ -1,0 +1,21 @@
+﻿@model ExcelDocumentProcessor.Web.Models.GridModel
+
+<div id="@(Model.TableName)Parent" style="max-height: 500px;">
+    <table id="@(Model.TableName)GridTable"></table>
+    <div id="@(Model.TableName)GridPager"></div>
+</div>
+
+<script>
+
+    var grid@(Model.TableName) = new STATIC_GRID('@Url.Content("~")', '@(Model.TableName)');
+
+    var loadGrid@(Model.TableName) = function() {
+        if (grid@(Model.TableName).hasData() !== true) {
+            grid@(Model.TableName).createGrid(@Html.Raw(@Model.JqGridColumnNames), @Html.Raw(@Model.JqGridColumns), '@(Model.ControllerName)');
+        }
+    }
+
+    $(window).bind('resize', function() {
+        $("#@(Model.TableName)GridTable").setGridWidth($("#@(Model.TableName)Parent").width() - 2).width();
+    }).trigger('resize');
+</script>

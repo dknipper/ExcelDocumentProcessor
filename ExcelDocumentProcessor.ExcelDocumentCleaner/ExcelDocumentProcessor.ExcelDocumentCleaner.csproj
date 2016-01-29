@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -61,12 +65,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Constants\ExcelTabName.cs" />
+    <Compile Include="Constants\FileType.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Processors\DistinctManagers.cs" />
+    <Compile Include="Processors\GroupDataAndBmkSets.cs" />
+    <Compile Include="Processors\Interfaces\IProcessor.cs" />
+    <Compile Include="Processors\ParentMigrationVA.cs" />
+    <Compile Include="Processors\PeerGroupData.cs" />
+    <Compile Include="Processors\Processor.cs" />
+    <Compile Include="Processors\ProcessorFactory.cs" />
+    <Compile Include="Processors\Standard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

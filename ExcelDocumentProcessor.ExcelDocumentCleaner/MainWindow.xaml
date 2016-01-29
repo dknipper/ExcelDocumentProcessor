@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TextBox Height="32" HorizontalAlignment="Left" Margin="6,10,0,0" Name="FileNameTextBox" VerticalAlignment="Top" Width="393" />
+        <Button Content="Browse" Height="32" HorizontalAlignment="Left" Margin="405,10,0,0" Name="ButtonBrowse" VerticalAlignment="Top" Width="88" Click="ButtonBrowse_Click" />
+        <Button Content="Process Document" HorizontalAlignment="Left" Margin="10,96,0,0" Name="ButtonProcessDocument" VerticalAlignment="Top" Width="124" Click="ButtonProcessDocument_Click"/>
     </Grid>
 </Window>

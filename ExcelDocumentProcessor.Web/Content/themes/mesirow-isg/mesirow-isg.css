@@ -1,0 +1,305 @@
+﻿
+/********/
+/*Global*/
+/********/
+
+a:link, a:visited, a:active
+{
+    color: blue;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+body
+{
+    margin: 0;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+div.container
+{
+    overflow: auto;
+    width: 100%;
+}
+div.containerRow
+{
+    overflow: auto;
+    width: 350px;
+    padding-left: 25px;
+}
+
+.selectClass
+{
+    font-size: 11px;
+    width: 100px;
+}
+
+th.ui-th-column div
+{
+    white-space: normal !important;
+    height: auto !important;
+    padding: 2px;
+}
+
+input[type="submit"]
+{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #dcdcdc;
+    border: 1px solid #666;
+    color: #000;
+    text-decoration: none;
+    font: 12px arial, verdana;
+    margin-left: 5px;
+}
+
+/********/
+/*Layout*/
+/********/
+
+#header
+{
+    overflow: auto;
+    width: 100%;
+    height: 110px;
+    border-bottom: 1px solid #126394;
+}
+
+#logo
+{
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+}
+    #logo img
+    {
+        border: 0;
+    }
+
+#welcomeUser
+{
+    width: auto;
+    text-align: right;
+    background-color: #126394;
+    color: #fff;
+    right: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 28px;
+    position: absolute;
+}
+
+#headerRibbon
+{
+    background-color: #126394;
+    height: 10px;
+}
+
+#headerLinks
+{
+    margin-top: 48px;
+    margin-left: 40px;
+    float: left;
+}
+    #headerLinks > a, #headerLinks > span
+    {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+/********/
+/*Grid*/
+/********/
+
+#gridHolder
+{
+    margin-top: 25px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+#gridPager
+{
+    margin-top: 10px;
+    height: 20px;
+    background-color: cornflowerblue;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+#gridLabel
+{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.gridControls
+{
+    float: left;
+    margin-left: 15px;
+}
+
+div.exportControls
+{
+    float: right;
+    margin-right: 20px;
+}
+
+div.gridControlRow
+{
+    margin-bottom: 8px;
+    overflow: auto;
+    width: 100%;
+}
+
+#gridFilterHeader
+{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+div.gridFilterLabel
+{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 2px;
+    float: left;
+    font-size: 12px;
+    text-align: right;
+}
+
+div.gridFilterControl
+{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    float: left;
+}
+
+    div.gridFilterControl input[type="text"]
+    {
+        width: 80px;
+        font-size: 11px;
+    }
+
+    div.gridFilterControl input[type="file"]
+    {
+        width: 170px;
+        font-size: 11px;
+    }
+
+div.gridHeaderContainer
+{
+    margin-top: 2px;
+    overflow: auto;
+    width: 100%;
+    padding-top: 8px;
+}
+
+div.gridFilterReportControl
+{
+    float: right;
+    padding-right: 20px;
+    font-size: 11px;
+}
+
+div.gridFilterSelectorLabel
+{
+    padding-bottom: 10px;
+    padding-left: 35px;
+    padding-top: 2px;
+    float: left;
+    font-size: 12px;
+    text-align: right;
+}
+
+/******************/
+/*File Upload Demo*/
+/******************/
+
+div.fileUploadContainerRow
+{
+    overflow: auto;
+    width: 975px;
+    padding-left: 25px;
+}
+
+#fileUploadErrorHeader
+{
+    color: red;
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 12px;
+}
+
+#fileUploadErrors
+{
+    color: red;
+    line-height: 20px;
+    padding-left: 20px;
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+#fileUploadSuccess {
+    font-weight: bold;
+    color: #339933;
+    line-height: 20px;
+    padding-left: 20px;
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+
+/******************/
+/*JQuery Tabs*/
+/******************/
+#tabs-min
+{ 
+    padding: 0px; 
+    background: none; 
+    border-width: 0px;
+} 
+#tabs-min .ui-tabs-nav
+{ 
+    padding-left: 0px;
+    /*border-width: 0px 0px 1px 0px;*/
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    font-size: 12px;
+}
+#tabs-min .ui-tabs-panel
+{
+    padding: 0px;
+    margin: 0px;
+}
+.gridFilterControl
+{
+    font-size: 11px;
+}
+
+
+/* Fix for JQGrid form edit auto width - Thanks Oleg!! */
+div.ui-jqdialog-content .CaptionTD
+{
+    white-space: normal !important;
+}
+
+/******************/
+/*JQuery Widgets*/
+/******************/
+.ui-widget
+{
+    font-size: 11px !important;
+}

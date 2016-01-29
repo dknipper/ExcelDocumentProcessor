@@ -30,8 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\packages\Excel\Excel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +50,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AppConfig\Configuration.cs" />
+    <Compile Include="Constants\BusinessClientStatus.cs" />
+    <Compile Include="Entities\BusinessClient.cs" />
+    <Compile Include="Entities\BusinessDataColumnBuilder.cs" />
+    <Compile Include="Entities\BusinessDataTable.cs" />
+    <Compile Include="Entities\BusinessDataTableCell.cs" />
+    <Compile Include="Entities\BusinessDataTableCellMetaData.cs" />
+    <Compile Include="Entities\BusinessDataTableColumn.cs" />
+    <Compile Include="Entities\BusinessDataTableMetaData.cs" />
+    <Compile Include="Entities\BusinessDataTableRow.cs" />
+    <Compile Include="Entities\BusinessDataTableRowMetaData.cs" />
+    <Compile Include="Entities\BusinessExcelValidationRecord.cs" />
+    <Compile Include="Entities\BusinessUniverse.cs" />
+    <Compile Include="Entities\BusinessUniverseMap.cs" />
+    <Compile Include="Entities\BusinessUser.cs" />
+    <Compile Include="Entities\BusinessYearQuarter.cs" />
+    <Compile Include="Enumerations\BusinessExcelValidationDataType.cs" />
+    <Compile Include="Enumerations\BusinessExcelValidationResultType.cs" />
+    <Compile Include="Enumerations\BusinessISGDatabaseType.cs" />
+    <Compile Include="FileProcessor\ExcelProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\MapperSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExcelDocumentProcessor.Data\ExcelDocumentProcessor.Data.csproj">

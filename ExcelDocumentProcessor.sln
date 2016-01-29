@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelDocumentProcessor.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelDocumentProcessor.ExcelDocumentCleaner", "ExcelDocumentProcessor.ExcelDocumentCleaner\ExcelDocumentProcessor.ExcelDocumentCleaner.csproj", "{CF7380EF-A209-41CB-9BD8-EC88998CBF31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelDocumentProcessor.FileServices", "ExcelDocumentProcessor.FileServices\ExcelDocumentProcessor.FileServices.csproj", "{1D46190B-910D-4258-89C6-A569FE57CEFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CF7380EF-A209-41CB-9BD8-EC88998CBF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF7380EF-A209-41CB-9BD8-EC88998CBF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF7380EF-A209-41CB-9BD8-EC88998CBF31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D46190B-910D-4258-89C6-A569FE57CEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D46190B-910D-4258-89C6-A569FE57CEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D46190B-910D-4258-89C6-A569FE57CEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D46190B-910D-4258-89C6-A569FE57CEFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

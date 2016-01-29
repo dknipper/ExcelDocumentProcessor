@@ -1,0 +1,27 @@
+﻿@model ExcelDocumentProcessor.Web.Models.ClientModel
+
+@{
+    ViewBag.Title = @Model.FriendlyName;
+}
+@using (Ajax.BeginForm("SelectClient", "Client", null))
+{
+    <div class="container" style="padding-top: 15px;">
+        <div class="containerRow">
+            <div class="gridFilterLabel">
+                @Html.LabelFor(m => m.ClientListItems)
+            </div>
+            <div class="gridFilterControl">
+                @Html.DropDownListFor(m => m.SelectClientListItemIndex, Model.ClientListItems, new {@class = "selectClass"})
+            </div>
+            <div class="gridFilterLabel">
+                @Html.HiddenFor(x => x.DatabaseType)
+                @Html.HiddenFor(x => x.HasLoaded)
+            </div>
+            <div class="gridFilterControl">
+                <input type="submit" value="Get Client" />
+            </div>
+        </div>
+    </div>
+}
+@Html.Partial("GridCollection", Model.GridModel.Grids)
+

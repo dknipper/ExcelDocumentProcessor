@@ -1,0 +1,48 @@
+﻿@model List<ExcelDocumentProcessor.Web.Models.GridModel>
+
+
+    @if (Model.Count() <= 1)
+    {
+        foreach (var grid in Model)
+        {
+            @Html.Partial("StaticGrid", grid)
+        }
+    }
+    else
+    {
+        <div id="tabs-min" style="visibility: hidden; width: auto;">
+            <ul>
+                @foreach (var grid in Model)
+                {
+                    <li>
+                        <a href="#tabs-@(grid.TableName)" data-table="@(grid.TableName)">@(grid.FriendlyTableName)</a>
+                    </li>
+                }
+            </ul>
+
+            @foreach (var grid in Model)
+            {
+                <div id="tabs-@(grid.TableName)" data-table="@(grid.TableName)">
+                    @Html.Partial("StaticGrid", grid)
+                </div>
+            }
+        </div>
+    }
+    
+    <script>
+        $(function () {
+            $("#tabs-min").tabs({
+                activate: function (event, ui) {
+                    var tab = ui.newPanel.attr("data-table");
+                    // check if any fields are being edited...warn user that they are changing tabs.
+                    window["loadGrid" + tab]();
+                }
+            }).css('visibility', 'visible');
+
+            @{var firstGrid = Model.FirstOrDefault();}
+            @if (firstGrid != null)
+            {
+                <text>window["loadGrid" + "@(firstGrid.TableName)"]();</text>
+            }
+        });
+    </script>

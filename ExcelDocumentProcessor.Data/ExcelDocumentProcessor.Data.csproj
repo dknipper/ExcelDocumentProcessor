@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C182367B-53AE-46D5-9283-8B292F9F983E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExcelDocumentProcessor.Data</RootNamespace>
+    <AssemblyName>ExcelDocumentProcessor.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig\Configuration.cs" />
+    <Compile Include="Entities\Custom\DALClient.cs" />
+    <Compile Include="Entities\Custom\DALDataTable.cs" />
+    <Compile Include="Entities\Custom\DALDataTableCell.cs" />
+    <Compile Include="Entities\Custom\DALDataTableCellMetaData.cs" />
+    <Compile Include="Entities\Custom\DALDataTableColumn.cs" />
+    <Compile Include="Entities\Custom\DALDataTableMetaData.cs" />
+    <Compile Include="Entities\Custom\DALDataTableRow.cs" />
+    <Compile Include="Entities\Custom\DALDataTableRowMetaData.cs" />
+    <Compile Include="Entities\Custom\DALExcelValidationRecord.cs" />
+    <Compile Include="Entities\Custom\DALRoleAssignment.cs" />
+    <Compile Include="Entities\Custom\DALRoleMapping.cs" />
+    <Compile Include="Entities\Custom\DALUniverse.cs" />
+    <Compile Include="Entities\Custom\DALUser.cs" />
+    <Compile Include="Entities\Custom\DALYearQuarter.cs" />
+    <Compile Include="Entities\Custom\DynamicEntity.cs" />
+    <Compile Include="Entities\SystemGenerated\ClientInformation.cs" />
+    <Compile Include="Entities\SystemGenerated\ClientMasterMaster.cs" />
+    <Compile Include="Entities\SystemGenerated\ExcelValidationDataType.cs" />
+    <Compile Include="Entities\SystemGenerated\ExcelValidationRecord.cs" />
+    <Compile Include="Entities\SystemGenerated\ExcelValidationResultType.cs" />
+    <Compile Include="Entities\SystemGenerated\Function.cs" />
+    <Compile Include="Entities\SystemGenerated\FundMasterMaster.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGAdmin.Context.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGAdmin.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGAdmin.designer.cs">
+      <DependentUpon>ISGAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemGenerated\ISGClient.Context.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGClient.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGClient.designer.cs">
+      <DependentUpon>ISGClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemGenerated\ISGInput.Context.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGInput.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGInput.designer.cs">
+      <DependentUpon>ISGInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemGenerated\ISGOutput.Context.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGOutput.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGOutput.designer.cs">
+      <DependentUpon>ISGOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemGenerated\ISGTransient.Context.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGTransient.cs" />
+    <Compile Include="Entities\SystemGenerated\ISGTransient.designer.cs">
+      <DependentUpon>ISGTransient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SystemGenerated\Role.cs" />
+    <Compile Include="Entities\SystemGenerated\RoleAssignment.cs" />
+    <Compile Include="Entities\SystemGenerated\RoleMapping.cs" />
+    <Compile Include="Entities\SystemGenerated\TableMetaData.cs" />
+    <Compile Include="Entities\SystemGenerated\User.cs" />
+    <Compile Include="Entities\SystemGenerated\YearQuater.cs" />
+    <Compile Include="Enumerations\DALExcelValidationDataType.cs" />
+    <Compile Include="Enumerations\DALExcelValidationResultType.cs" />
+    <Compile Include="Enumerations\DALISGDatabaseType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Database.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

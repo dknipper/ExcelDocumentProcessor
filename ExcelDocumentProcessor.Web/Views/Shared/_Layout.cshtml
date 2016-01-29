@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.UName = User.Identity.Name;
+    var baseAction = "/";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Href("~/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="@Url.Content("~/Content/themes/Neon-isg/Neon-isg.css")" rel="stylesheet" />
+    
+    <link href="@Url.Content("~/Content/themes/Neon-isg/jquery-ui-1.10.4.custom.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery-ui-1.10.4.custom.js")" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/Scripts/jqGrid/css/ui.jqgrid.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/jqGrid/css/jquery.multiselect.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Scripts/jqGrid/css/jquery.multiselect.filter.css")" rel="stylesheet" />
+
+    <script src="@Url.Content("~/Scripts/jqGrid/src/i18n/grid.locale-en.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jqGrid/src/jquery.jqGrid.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jqGrid/js/jquery.multiselect.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jqGrid/js/jquery.multiselect.filter.js")" type="text/javascript"></script>
+    
+    <script src="@Url.Content("~/Scripts/ajaxLoader.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/custom.js")" type="text/javascript"></script>
+
+</head>
+    <body>
+        <div id="header">
+            <div id="headerRibbon"></div>
+            <div class="container">
+                <div id="logo">
+                    <a href="@Href("~/")" target="_self"><img alt="logo" src="@Href("~/images/logo.gif")"></a>
+                </div>
+                <div id="headerLinks">
+                    @{var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();}
+
+                    @if (controller != "Home")
+                    {
+                        @Html.ActionLink("Home", baseAction, "Home")
+                    }
+                    else
+                    { @Html.Raw("<span>Home</span>")} | 
+
+                    @if (controller != "Client")
+                    {
+                        @Html.ActionLink("Client", baseAction, "Client")
+                    }
+                    else
+                    { @Html.Raw("<span>Client</span>")} | 
+
+                    @if (controller != "Fund")
+                    {
+                        @Html.ActionLink("Fund", baseAction, "Fund")
+                    }
+                    else
+                    { @Html.Raw("<span>Fund</span>")} | 
+                    
+                     @if (controller != "ClientChangeUpload")
+                    {
+                        @Html.ActionLink("Client Change Upload", baseAction, "ClientChangeUpload")
+                    }
+                    else
+                    { @Html.Raw("<span>Client Change Upload</span>")} | 
+
+                    @if (controller != "UniverseUpload")
+                    {
+                        @Html.ActionLink("Universe File Upload", baseAction, "UniverseUpload")
+                    }
+                    else
+                    { @Html.Raw("<span>Universe File Upload</span>")}
+                </div>
+                <div id="welcomeUser">
+                    Welcome, @ViewBag.UName
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+		    function showError(data) {
+		        $('#main_content').html(data.responseText);
+		    }
+            var showSpinner = true;
+            var afUpdate = false;
+            var vdUpdate = false;
+            $(document).ready(function () {
+                allowIndexOf();
+
+                //turn spinner on
+                $(document).ajaxStart(function () {
+                    if (showSpinner)
+                        var spinner = new ajaxLoader($("body"), {});
+                });
+
+                //turn spinner off
+                $(document).ajaxStop(function () {
+                    showSpinner = true;
+                    var overlay = $("body").children(".ajax_overlay");
+                    if (overlay.length) {
+                        overlay.fadeOut(false, function () {
+                            overlay.remove();
+                        });
+                    }
+                });
+            });
+
+		</script>
+
+        <style type="text/css">
+            .ajax_loader
+            {
+                background: url('@Url.Content("~/Images/ajaxLoader.gif")') no-repeat center center transparent;
+	            width:100%;
+	            height:80%;
+	            /*margin-left: 100px;*/
+            }
+        </style>
+
+        <div id="mainContent">
+            @RenderBody()
+        </div>
+    </body>
+</html>

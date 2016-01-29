@@ -1,0 +1,41 @@
+﻿@model ExcelDocumentProcessor.Web.Models.GridModel
+
+<div class="gridHeaderContainer">
+    <div class="container">
+        <div class="gridFilterSelectorLabel">
+            Editing style:
+        </div>
+        <div class="gridFilterControl">
+            <select class="selectClass" id="@(Model.TableName)inlineEditing">
+                <option value="true">Inline</option>
+                <option value="false">Form</option>
+            </select>
+        </div>
+        <div class="gridFilterReportControl">
+            <a href="@Url.Action("DownloadFullExcel", "BaseGrid", new { id = Model.TableName, databaseType = Model.DatabaseType })">Export to Excel</a>
+        </div>
+    </div>
+</div>
+
+<div id="@(Model.TableName)Parent" style="max-height: 500px; width: 100%; position: absolute">
+    <table id="@(Model.TableName)GridTable"></table>
+    <div id="@(Model.TableName)GridPager"></div>
+</div>
+
+<script>
+
+    var grid@(Model.TableName) = new GRID('@Url.Content("~")', '@(Model.TableName)', '@(Model.DatabaseType)', @Html.Raw(Model.JqGridNonEditableColumns));
+
+    var loadGrid@(Model.TableName) = function() {
+        if (grid@(Model.TableName).hasData() === true) {
+            grid@(Model.TableName).refreshData();
+        }
+        else {
+            grid@(Model.TableName).createGrid(@Html.Raw(@Model.JqGridColumnNames), @Html.Raw(@Model.JqGridColumns), '@(Model.ControllerName)');
+        }
+    }
+
+    $(window).bind('resize', function() {
+        $("#@(Model.TableName)GridTable").setGridWidth(($("#@(Model.TableName)Parent").width() - 2));
+    }).trigger('resize');
+</script>

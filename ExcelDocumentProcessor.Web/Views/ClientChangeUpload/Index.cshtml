@@ -1,0 +1,68 @@
+﻿@model ExcelDocumentProcessor.Web.Models.ClientChangeUploadModel
+
+@{
+    ViewBag.Title = @Model.FriendlyName;
+}
+
+@using (Html.BeginForm("FileUpload", "ClientChangeUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="gridFilterHeader">
+        @Model.FriendlyName
+    </div>
+    if (Model.ValidationErrors.Count > 0)
+    {
+        <div id="fileUploadErrorHeader">
+            @Html.LabelFor(m => m.ValidationErrors)
+        </div>
+        <div id="fileUploadErrors">
+            <ul>
+                @foreach (var errMsg in Model.ValidationErrors)
+                {
+                    <li>@errMsg</li>
+                } 
+            </ul>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(Model.UploadCode))
+    {
+        <div id="fileUploadSuccess">
+            The file may take up to 2 minutes to process, visit the home page and locate the code &quot;<span>@Model.UploadCode</span>&quot; to review the file status.
+        </div>
+    }
+    <div class="container">
+        <div class="fileUploadContainerRow">
+            <div class="gridFilterLabel">
+                @Html.LabelFor(m => m.ClientListItems)
+            </div>
+            <div class="gridFilterControl">
+                @Html.DropDownListFor(m => m.SelectClientListItemIndex, Model.ClientListItems, new {@class= "selectClass"})
+            </div>
+            <div class="gridFilterLabel">
+                @Model.UploadControlName<span>:</span>
+            </div>
+            <div class="gridFilterControl">
+                <input name="clientFile" type="file" />
+            </div>
+            <div class="gridFilterLabel">
+                @Html.LabelFor(m => m.YearQuarters)
+            </div>
+            <div class="gridFilterControl">
+                @Html.DropDownListFor(m => m.SelectYearQuarterListItemValue, Model.YearQuarters, new {@class= "selectClass"})
+            </div>
+            <div class="gridFilterLabel">
+                @Html.HiddenFor(x => x.DatabaseType)
+                @Html.HiddenFor(x => x.HasLoaded)
+            </div>
+            <div class="gridFilterControl">
+                <input type="submit" value="Upload File" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+

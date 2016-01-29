@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,21 +38,41 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.69.2\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -80,19 +102,280 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\themes\mesirow-isg\images\animated-overlay.gif" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\themes\mesirow-isg\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\themes\mesirow-isg\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\themes\mesirow-isg\mesirow-isg.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\ajaxLoader.gif" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\cancel.png" />
+    <Content Include="Images\edit.gif" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\save.gif" />
+    <Content Include="Scripts\ajaxLoader.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\jqGrid\css\jquery.multiselect.css" />
+    <Content Include="Scripts\jqGrid\css\jquery.multiselect.filter.css" />
+    <Content Include="Scripts\jqGrid\css\ui.jqgrid.css" />
+    <Content Include="Scripts\jqGrid\js\Changes.txt" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\jqGrid\js\install.txt" />
+    <Content Include="Scripts\jqGrid\js\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.multiselect.filter.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.multiselect.js" />
+    <Content Include="Scripts\jqGrid\plugins\grid.addons.js" />
+    <Content Include="Scripts\jqGrid\plugins\grid.postext.js" />
+    <Content Include="Scripts\jqGrid\plugins\grid.setcolumns.js" />
+    <Content Include="Scripts\jqGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="Scripts\jqGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="Scripts\jqGrid\plugins\jquery.tablednd.js" />
+    <Content Include="Scripts\jqGrid\plugins\searchFilter.css" />
+    <Content Include="Scripts\jqGrid\plugins\ui.multiselect.css" />
+    <Content Include="Scripts\jqGrid\plugins\ui.multiselect.js" />
+    <Content Include="Scripts\jqGrid\src\css\ui.jqgrid.css" />
+    <Content Include="Scripts\jqGrid\src\css\ui.multiselect.css" />
+    <Content Include="Scripts\jqGrid\src\grid.base.js" />
+    <Content Include="Scripts\jqGrid\src\grid.celledit.js" />
+    <Content Include="Scripts\jqGrid\src\grid.common.js" />
+    <Content Include="Scripts\jqGrid\src\grid.custom.js" />
+    <Content Include="Scripts\jqGrid\src\grid.filter.js" />
+    <Content Include="Scripts\jqGrid\src\grid.formedit.js" />
+    <Content Include="Scripts\jqGrid\src\grid.grouping.js" />
+    <Content Include="Scripts\jqGrid\src\grid.import.js" />
+    <Content Include="Scripts\jqGrid\src\grid.inlinedit.js" />
+    <Content Include="Scripts\jqGrid\src\grid.jqueryui.js" />
+    <Content Include="Scripts\jqGrid\src\grid.loader.js" />
+    <Content Include="Scripts\jqGrid\src\grid.pivot.js" />
+    <Content Include="Scripts\jqGrid\src\grid.subgrid.js" />
+    <Content Include="Scripts\jqGrid\src\grid.tbltogrid.js" />
+    <Content Include="Scripts\jqGrid\src\grid.treegrid.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\jqGrid\src\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\jqGrid\src\jqDnR.js" />
+    <Content Include="Scripts\jqGrid\src\jqModal.js" />
+    <Content Include="Scripts\jqGrid\src\jquery.fmatter.js" />
+    <Content Include="Scripts\jqGrid\src\jquery.jqGrid.js" />
+    <Content Include="Scripts\jqGrid\src\JsonXml.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationLogic\AppConfig\Configuration.cs" />
+    <Compile Include="ApplicationLogic\AppConfig\WebCache.cs" />
+    <Compile Include="ApplicationLogic\Constants\SearchType.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\FilterDataObject.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebClient.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebDataColumnBuilder.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebDataTable.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebDataTableCell.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebDataTableColumn.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebDataTableMetaData.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebDataTableRow.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebUniverse.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebUniverseMap.cs" />
+    <Compile Include="ApplicationLogic\Entities\Custom\WebYearQuarter.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\DBTable.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\ExcelDBTableColumnMap.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\FundType.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\FundTypeMap.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\FundTypeTemplateKey.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\GridColumnConfig.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\ISGDB.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\SearchType.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\UIConfig.Context.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\UIConfig.cs" />
+    <Compile Include="ApplicationLogic\Entities\SystemGenerated\UIConfig.Designer.cs">
+      <DependentUpon>UIConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationLogic\Enumerations\WebExcelValidationDataType.cs" />
+    <Compile Include="ApplicationLogic\Enumerations\WebExcelValidationResultType.cs" />
+    <Compile Include="ApplicationLogic\Enumerations\WebISGDatabaseType.cs" />
+    <Compile Include="ApplicationLogic\Proxies\DataService\MesirowISGDataService.cs" />
+    <Compile Include="ApplicationLogic\Proxies\FileService\MesirowISGFileService.cs" />
+    <Compile Include="ApplicationLogic\Security\Interfaces\IApprovable.cs" />
+    <Compile Include="ApplicationLogic\Security\MesirowAuthorize.cs" />
+    <Compile Include="ApplicationLogic\Security\MesirowIdentityInjector.cs" />
+    <Compile Include="ApplicationLogic\Security\MesirowPrincipal.cs" />
+    <Compile Include="ApplicationLogic\Security\MesirowUserIdentity.cs" />
+    <Compile Include="ApplicationLogic\Security\NoCacheAttribute.cs" />
+    <Compile Include="ApplicationLogic\Security\SecurityModel.cs" />
+    <Compile Include="ApplicationLogic\UserInterfaceHelpers\GridColumnMapping.cs" />
+    <Compile Include="ApplicationLogic\UserInterfaceHelpers\GridTab.cs" />
+    <Compile Include="ApplicationLogic\UserInterfaceHelpers\ISGColumnMapping.cs" />
+    <Compile Include="ApplicationLogic\UserInterfaceHelpers\SelectLists.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseGridController.cs" />
+    <Compile Include="Controllers\ClientChangeUploadController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\FundController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SecurityIssuesController.cs" />
+    <Compile Include="Controllers\UniverseUploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientChangeUploadModel.cs" />
+    <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\FundModel.cs" />
+    <Compile Include="Models\GridModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\Interfaces\IParentModel.cs" />
+    <Compile Include="Models\UniverseUploadModel.cs" />
+    <Compile Include="Models\UploadModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="UIConfig\UIConfig.sqlite" />
+    <Content Include="Views\ClientChangeUpload\Index.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Fund\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SecurityIssues\Unauthenticated.cshtml" />
+    <Content Include="Views\SecurityIssues\Unauthorized.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Grid.cshtml" />
+    <Content Include="Views\Shared\GridCollection.cshtml" />
+    <Content Include="Views\Shared\StaticGrid.cshtml" />
+    <Content Include="Views\Shared\StaticGridCollection.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\UniverseUpload\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -102,8 +385,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
